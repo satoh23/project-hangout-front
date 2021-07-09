@@ -8,8 +8,26 @@
     "start": "next start"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.15.0",
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "konva": "^8.1.1",
+    "multer": "^1.4.2",
     "next": "10.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-konva": "^17.0.2-4",
+    "react-loading": "^2.0.3",
+    "react-payjp-checkout": "0.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-script-tag": "^1.1.2",
+    "svg-loader": "0.0.2",
+    "swr": "^0.5.6",
+    "universal-cookie": "^4.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.13",
+    "tailwindcss": "^2.1.2"
   }
 }
