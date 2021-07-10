@@ -18,40 +18,40 @@ export default function Layout({ children, title="Hang Out", changeBlog=false })
     const [isShowNotice, setIsShowNotice] = useState(false)
     const [isOnceConnect, setIsOnceConnect] = useState(true)
 
-    const connectSocket = () => {
-        setNoticeSocket(new WebSocket(
-            'ws://'
-            + 'localhost:8080'
-            + '/ws/notice/'
-            + myId.replace(/-/g, "")
-            + '/')
-        )
-    }
+    // const connectSocket = () => {
+    //     setNoticeSocket(new WebSocket(
+    //         'ws://'
+    //         + 'localhost:8080'
+    //         + '/ws/notice/'
+    //         + myId.replace(/-/g, "")
+    //         + '/')
+    //     )
+    // }
 
-    useEffect(() => {
-        const main = async() => {
-            connectSocket();
-        }
+    // useEffect(() => {
+    //     const main = async() => {
+    //         connectSocket();
+    //     }
 
-        if (!changeBlog && gender===process.env.NEXT_PUBLIC_FEMALE_ID){
-            main();
-        }
-    }, [])
+    //     if (!changeBlog && gender===process.env.NEXT_PUBLIC_FEMALE_ID){
+    //         main();
+    //     }
+    // }, [])
 
-    if (noticeSocket) {
-        noticeSocket.onmessage = function(e) {
-            const data = JSON.parse(e.data);
-            setSender({name: data.name, channelName: data.sender_channel_name, id: data.male_id})
-            setIsShowNotice(!isShowNotice)
-        }
-        if (isOnceConnect) {
-            noticeSocket.onclose = function(e) {
-                connectSocket();
-            }
-        } else {
-            noticeSocket.onclose = function(e) {;}
-        }
-    }
+    // if (noticeSocket) {
+    //     noticeSocket.onmessage = function(e) {
+    //         const data = JSON.parse(e.data);
+    //         setSender({name: data.name, channelName: data.sender_channel_name, id: data.male_id})
+    //         setIsShowNotice(!isShowNotice)
+    //     }
+    //     if (isOnceConnect) {
+    //         noticeSocket.onclose = function(e) {
+    //             connectSocket();
+    //         }
+    //     } else {
+    //         noticeSocket.onclose = function(e) {;}
+    //     }
+    // }
 
     return (
         <div>
@@ -62,7 +62,7 @@ export default function Layout({ children, title="Hang Out", changeBlog=false })
                 <Navbar changeBlog={changeBlog} noticeSocket={noticeSocket}/>
                 {changeBlog ? "" : <Sidebar noticeSocket={noticeSocket}/>}
                 {changeBlog ? "" : <Footerbar />}
-                {isShowNotice ? <NoticeForFemale senderName={sender.name} channelName={sender.channelName} isShowNotice={isShowNotice} setIsShowNotice={setIsShowNotice} noticeSocket={noticeSocket} setIsOnceConnect={setIsOnceConnect} maleId={sender.id} femaleId={myId}/> : ""}
+                {/* {isShowNotice ? <NoticeForFemale senderName={sender.name} channelName={sender.channelName} isShowNotice={isShowNotice} setIsShowNotice={setIsShowNotice} noticeSocket={noticeSocket} setIsOnceConnect={setIsOnceConnect} maleId={sender.id} femaleId={myId}/> : ""} */}
             </header>
 
             <div className="flex justify-center items-center flex-col min-h-screen text-black font-mono">
