@@ -8,8 +8,8 @@ export default function FemaleMenu ({ id, userName, isShowInvite, setIsShowInvit
 
     const inviteHandler = () => {
         alert("開発中です！")
-        // setHandleInvite(!handleInvite)
-        // setIsShowInvite(!isShowInvite)
+         setHandleInvite(!handleInvite)
+         setIsShowInvite(!isShowInvite)
     }
 
     return (
