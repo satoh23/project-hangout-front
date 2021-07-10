@@ -53,12 +53,12 @@ export default function User({ staticUser, id }) {
     const raceHandler = (id) => {
         return (
             <span className="text-sm">
-                {1===id ? "S女" : ""}
-                {2===id ? "年上" : ""}
-                {3===id ? "年下" : ""}
-                {4===id ? "メスガキ" : ""}
-                {5===id ? "韓女" : ""}
-                {6===id ? "ネカマ" : ""}
+                {1===id ? "asdfad" : ""}
+                {2===id ? "fadf" : ""}
+                {3===id ? "hadfhd" : ""}
+                {4===id ? "fdshdfh" : ""}
+                {5===id ? "afgfdg" : ""}
+                {6===id ? "gadfgdf" : ""}
             </span>
         )
     }

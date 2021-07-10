@@ -29,12 +29,12 @@ export default function User({ user }) {
     const raceHandler = (id) => {
         return (
             <span>
-                {1===id ? "S女" : ""}
-                {2===id ? "年上" : ""}
-                {3===id ? "年下" : ""}
-                {4===id ? "メスガキ" : ""}
-                {5===id ? "韓女" : ""}
-                {6===id ? "ネカマ" : ""}
+                {1===id ? "11" : ""}
+                {2===id ? "asdg" : ""}
+                {3===id ? "fasdfa" : ""}
+                {4===id ? "gfagfdg" : ""}
+                {5===id ? "gasfgfdg" : ""}
+                {6===id ? "fdsgdfgfdg" : ""}
             </span>
         )
     }
