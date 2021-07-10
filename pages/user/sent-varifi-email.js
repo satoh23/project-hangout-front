@@ -3,7 +3,7 @@ import AuthLayout from "../../components/AuthLayout";
 export default function SentVarifiEmail() {
     return (
         <AuthLayout>
-            <div>確認メールを送信しました</div>
+            <div>登録完了しました</div>
         </AuthLayout>
     )
 }
