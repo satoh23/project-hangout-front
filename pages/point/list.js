@@ -54,11 +54,11 @@ export default function List () {
                 </div>
             </article>
             </Link>
-            <article className="flex cursor-pointer overflow-hidden border rounded-lg shadow-md w-1/2 lg:w-1/3 h-14 ml-3 mt-4 bg-pink-300 hover:bg-white hover:border hover:border-pink-300 text-white hover:text-pink-300">
+            {/* <article className="flex cursor-pointer overflow-hidden border rounded-lg shadow-md w-1/2 lg:w-1/3 h-14 ml-3 mt-4 bg-pink-300 hover:bg-white hover:border hover:border-pink-300 text-white hover:text-pink-300">
                 <div className="items-center text-center justify-between leading-tight w-full m-auto font-bold text-xl">
                     出金申請
                 </div>
-            </article>
+            </article> */}
         </Layout>
     )
 }

@@ -163,17 +163,6 @@ export default function Auth() {
                 }}
                 /><span className="mr-8">男性</span>
                 </label>
-                <label>
-                <input
-                name="gender"
-                type="radio"
-                value="女性"
-                required className="mr-1"
-                onClick={(e) => {
-                    setGender(`${process.env.NEXT_PUBLIC_FEMALE_ID}`)
-                }}
-                /><span>女性</span>
-                </label>
                 </div>
                 </>}
             </div>
