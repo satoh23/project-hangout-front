@@ -3,7 +3,7 @@ export async function checkTop(othelloState, rowNum, colNum, myState) {
     if (rowNum===0) {
         return false
     }
-    for (let row = rowNum-1; 0 < row; row--) {
+    for (let row = rowNum-1; 0 <= row; row--) {
         const square = othelloState[row][colNum]
         if (square===null) {
             return false
@@ -23,7 +23,7 @@ export async function checkBottom(othelloState, rowNum, colNum, myState) {
     if (rowNum===7) {
         return false
     }
-    for (let row = rowNum+1; row < 8; row++) {
+    for (let row = rowNum+1; row < 9; row++) {
         const square = othelloState[row][colNum]
         if (square===null) {
             return false
@@ -43,7 +43,7 @@ export async function checkRight(othelloState, rowNum, colNum, myState) {
     if (colNum===7) {
         return false
     }
-    for (let col = colNum+1; col < 8; col++) {
+    for (let col = colNum+1; col < 9; col++) {
         const square = othelloState[rowNum][col]
         if (square===null) {
             return false
@@ -63,7 +63,7 @@ export async function checkLeft(othelloState, rowNum, colNum, myState) {
     if (colNum===0) {
         return false
     }
-    for (let col = colNum-1; 0 < col; col--) {
+    for (let col = colNum-1; 0 <= col; col--) {
         const square = othelloState[rowNum][col]
         if (square===null) {
             return false
@@ -83,7 +83,7 @@ export async function checkTopRight(othelloState, rowNum, colNum, myState) {
     if (rowNum===0 || colNum===7) {
         return false
     }
-    for (let row=rowNum-1, col=colNum+1; 0<row&&col<8; row--,col++) {
+    for (let row=rowNum-1, col=colNum+1; 0<=row&&col<9; row--,col++) {
         const square = othelloState[row][col]
         if (square===null) {
             return false
@@ -101,7 +101,7 @@ export async function checkBottomRight(othelloState, rowNum, colNum, myState) {
     if (rowNum===7 || colNum===7) {
         return false
     }
-    for (let row=rowNum+1, col=colNum+1; row<8&&col<8; row++,col++) {
+    for (let row=rowNum+1, col=colNum+1; row<9&&col<9; row++,col++) {
         const square = othelloState[row][col]
         if (square===null) {
             return false
@@ -119,7 +119,7 @@ export async function checkTopLeft(othelloState, rowNum, colNum, myState) {
     if (rowNum===0 || colNum===0) {
         return false
     }
-    for (let row=rowNum-1, col=colNum-1; 0<row&&0<col; row--,col--) {
+    for (let row=rowNum-1, col=colNum-1; 0<=row&&0<=col; row--,col--) {
         const square = othelloState[row][col]
         if (square===null) {
             return false
@@ -137,7 +137,7 @@ export async function checkBottomLeft(othelloState, rowNum, colNum, myState) {
     if (rowNum===7 || colNum===0) {
         return false
     }
-    for (let row=rowNum+1, col=colNum-1; row<8&&0<col; row++,col--) {
+    for (let row=rowNum+1, col=colNum-1; row<9&&0<=col; row++,col--) {
         const square = othelloState[row][col]
         if (square===null) {
             return false

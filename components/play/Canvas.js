@@ -1,11 +1,11 @@
 import React from 'react';
 import { Circle, Layer, Rect, Stage } from "react-konva";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookie from "universal-cookie";
 import { checkBottom, checkTop, checkRight, checkLeft,
          checkTopRight, checkBottomRight, checkTopLeft, checkBottomLeft,
-         returnCanReversalDirection } from "./Check";
-import { reversalStone } from "./ReversalStone";
+         returnCanReversalDirection } from "./api/Check";
+import { reversalStone } from "./api/ReversalStone";
 
 const cookie = new Cookie();
 
@@ -42,14 +42,6 @@ const initOthelloState = () => {
     othelloState[3][4] = 1
     othelloState[4][3] = 1
 
-    othelloState[5][4] = 0
-    othelloState[5][5] = 0
-    othelloState[5][6] = 0
-    othelloState[5][7] = 0
-    othelloState[6][7] = 0
-    othelloState[4][7] = 1
-    othelloState[3][5] = 1
-    othelloState[4][6] = 1
     return othelloState
 }
 
@@ -101,13 +93,38 @@ const returnMyState = (genderId) => {
     }
 }
 
-export default function Test() {
+export default function Othello({ roomName }) {
     const { innerWidth: width, innerHeight: height } = window;
     const genderId = cookie.get("GID")
     const margin = 3
     const stageOneSide = calcStageOneSide(innerWidth, innerHeight)
     const squareOneSide = (stageOneSide - 9*margin) / 8
     const [othelloState, setOthelloState] = useState(initOthelloState())
+    const [othelloSocket, setNoticeSocket] = useState(null)
+
+    const connectOthelloSocket = () => {
+        setNoticeSocket(new WebSocket(
+            'ws://'
+            + 'localhost:8080'
+            + '/ws/othello/'
+            + roomName.replace(/-/g, "")
+            + '/')
+        )
+    }
+
+    useEffect(() => {
+        connectOthelloSocket();
+    }, [])
+
+    if (othelloSocket) {
+        othelloSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            setOthelloState(data.othello_state)
+        }
+        othelloSocket.onclose = function(e) {
+            connectOthelloSocket();
+        }
+    }
 
     // (int, int, int) => dict
     const calcCoordinate = (rowNum, colNum, margin) => {
@@ -163,7 +180,9 @@ export default function Test() {
             const myState = returnMyState(genderId)
             canPutValidation(othelloState, rowNum, colNum, myState).then((res) => {
                 if (res.canPut) {
-                    setOthelloState(updateOthelloState(othelloState, rowNum, colNum, myState, res.canReversalDirection))
+                    const newOthelloState = updateOthelloState(othelloState, rowNum, colNum, myState, res.canReversalDirection)
+                    setOthelloState(newOthelloState)
+                    othelloSocket.send(JSON.stringify({"othello_state": newOthelloState}))
                 }
             })
         }

@@ -47,7 +47,7 @@ export default function Chat ({ roomName, user }) {
 
     return(
         <div className="flex justify-center items-center flex-col min-h-screen text-black font-mono">
-            <main className="flex flex-1 float-right justify-center items-center flex-col w-full mt-20 lg:mt-24 mb-16 lg:mb-3">
+            <main className="flex flex-1 float-right justify-center items-center flex-col w-full mb-16 lg:mb-3">
                 <article className="overflow-scroll border border-pink-200 w-11/12 mx-auto h-36 sm:h-56" id="chatArea">
                 {messages.map((message, index) => <div key={index} className={chatClassHandler(index)}><span className="font-bold mr-2 text-pink-300">{message.userName}:</span>{message.message}</div>)}
                 </article>

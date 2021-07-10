@@ -1,5 +1,5 @@
 const reversalTop = (othelloState, rowNum, colNum, myState) => {
-    for (let row = rowNum-1; 0 < row; row--) {
+    for (let row = rowNum-1; 0 <= row; row--) {
         const square = othelloState[row][colNum]
         if (square!==myState) {
             othelloState[row][colNum] = myState
@@ -10,7 +10,7 @@ const reversalTop = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalTopRight = (othelloState, rowNum, colNum, myState) => {
-    for (let row=rowNum-1, col=colNum+1; 0<row&&col<8; row--,col++) {
+    for (let row=rowNum-1, col=colNum+1; 0<=row&&col<9; row--,col++) {
         const square = othelloState[row][col]
         if (square!==myState) {
             othelloState[row][col] = myState
@@ -21,7 +21,7 @@ const reversalTopRight = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalRight = (othelloState, rowNum, colNum, myState) => {
-    for (let col = colNum+1; col < 8; col++) {
+    for (let col = colNum+1; col < 9; col++) {
         const square = othelloState[rowNum][col]
         if (square!==myState) {
             othelloState[rowNum][col] = myState
@@ -32,7 +32,7 @@ const reversalRight = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalBottomRight = (othelloState, rowNum, colNum, myState) => {
-    for (let row=rowNum+1, col=colNum+1; row<8&&col<8; row++,col++) {
+    for (let row=rowNum+1, col=colNum+1; row<9&&col<9; row++,col++) {
         const square = othelloState[row][col]
         if (square!==myState) {
             othelloState[row][col] = myState
@@ -43,7 +43,7 @@ const reversalBottomRight = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalBottom = (othelloState, rowNum, colNum, myState) => {
-    for (let row = rowNum+1; row < 8; row++) {
+    for (let row = rowNum+1; row < 9; row++) {
         const square = othelloState[row][colNum]
         if (square!==myState) {
             othelloState[row][colNum] = myState
@@ -54,7 +54,7 @@ const reversalBottom = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalBottomLeft = (othelloState, rowNum, colNum, myState) => {
-    for (let row=rowNum+1, col=colNum-1; row<8&&0<col; row++,col--) {
+    for (let row=rowNum+1, col=colNum-1; row<9&&0<=col; row++,col--) {
         const square = othelloState[row][col]
         if (square!==myState) {
             othelloState[row][col] = myState
@@ -65,7 +65,7 @@ const reversalBottomLeft = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalLeft = (othelloState, rowNum, colNum, myState) => {
-    for (let col = colNum-1; 0 < col; col--) {
+    for (let col = colNum-1; 0 <= col; col--) {
         const square = othelloState[rowNum][col]
         if (square!==myState) {
             othelloState[rowNum][col] = myState
@@ -76,7 +76,7 @@ const reversalLeft = (othelloState, rowNum, colNum, myState) => {
 }
 
 const reversalTopLeft = (othelloState, rowNum, colNum, myState) => {
-    for (let row=rowNum-1, col=colNum-1; 0<row&&0<col; row--,col--) {
+    for (let row=rowNum-1, col=colNum-1; 0<=row&&0<=col; row--,col--) {
         const square = othelloState[row][col]
         if (square!==myState) {
             othelloState[row][col] = myState

@@ -1,6 +1,9 @@
+import React from 'react';
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Chat from "../../components/play/Chat";
+import dynamic from 'next/dynamic';
+const Othello = dynamic(() => import('../../components/play/Canvas'), { ssr: false });
 
 export default function PlayRoom() {
     const router = useRouter();
@@ -43,6 +46,7 @@ export default function PlayRoom() {
 
     return (
         <div>
+            <Othello roomName={roomName} />
             <Chat roomName={roomName} user={user}/>
         </div>
     )

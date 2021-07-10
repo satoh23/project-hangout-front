@@ -76,7 +76,7 @@ export default function InviteToPlay({ isShowInvite, setIsShowInvite, handleInvi
                     <div className="leading-tight w-4/6 m-auto pb-2 border-b border-gray-500 text-gray-800 border-dashed text-sm md:text-lg">
                         <div className="font-bold mb-1 font-bold text-pink-400">{userName}</div>
                         <div className="mb-2">をオセロに誘いますか？</div>
-                        <div className="mb-2">（承諾された場合、<span className="font-bold text-pink-400">500</span>P消費）</div>
+                        <div className="mb-2">（承諾された場合、<span className="font-bold text-pink-400">0</span>P消費）</div>
                     </div>
                     <div className="absolute bottom-1/4 flex">
                         <button onClick={cancelInvite} className="bg-pink-200 rounded-md shadow-md px-3 py-1 font-bold hover:text-pink-400 hover:bg-white">キャンセル</button>
