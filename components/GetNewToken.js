@@ -1,4 +1,4 @@
-export async function getNewToken() {
+export default async function getNewToken() {
     await fetch(`${process.env.NEXT_PUBLIC_RESTAPI_URL}api/v1/token-refresh/`,{
         method: "POST",
         headers: {
